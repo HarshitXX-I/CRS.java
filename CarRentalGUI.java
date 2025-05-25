@@ -110,6 +110,10 @@ class CarRentalSystem {
         customers.add(customer);
     }
 
+    public int getCustomerCount() {
+        return customers.size();
+    }
+
     public void rentCar(Car car, Customer customer, int days) {
         if (car.isAvailable()) {
             car.rent();
@@ -271,7 +275,7 @@ public class CarRentalGUI extends JFrame {
             }
 
             // Create new customer with unique id
-            Customer newCustomer = new Customer("CUS" + (rentalSystem.getRentals().size() + rentalSystem.customers.size() + 1), customerName);
+            Customer newCustomer = new Customer("CUS" + (rentalSystem.getRentals().size() + rentalSystem.getCustomerCount() + 1), customerName);
             rentalSystem.addCustomer(newCustomer);
 
             // Confirm rental details
@@ -330,3 +334,4 @@ public class CarRentalGUI extends JFrame {
         });
     }
 }
+
